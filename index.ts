@@ -15,8 +15,15 @@
   app.set('views', path.join(__dirname, 'views')); // thêm path.join
   app.set('view engine', 'pug')
 
-  app.get('/tours', (req: Request, res: Response) => {
-    res.render("client/pages/tours/index")
+  import Tour from './models/tour.model';
+  app.get('/tours',async (req: Request, res: Response) => {
+    const tour=await Tour.findAll({
+      raw:true
+    })
+    console.log(tour)
+    res.render("client/pages/tours/index",{
+      tours:tour
+    })
   });
 
   app.listen(port, () => {
