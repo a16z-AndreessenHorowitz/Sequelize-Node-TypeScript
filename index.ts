@@ -15,16 +15,9 @@
   app.set('views', path.join(__dirname, 'views')); // thêm path.join
   app.set('view engine', 'pug')
 
-  import Tour from './models/tour.model';
-  app.get('/tours',async (req: Request, res: Response) => {
-    const tour=await Tour.findAll({
-      raw:true
-    })
-    console.log(tour)
-    res.render("client/pages/tours/index",{
-      tours:tour
-    })
-  });
+  //Routes
+  import { routeClient } from './routes/index.route';
+  routeClient(app)
 
   app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
