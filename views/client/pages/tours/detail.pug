@@ -1,0 +1,60 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+include ../../mixins/moment.pug
+block main 
+  .container.my-3 
+    .row 
+      .col-6 
+        if(tourDetail.images)
+          .inner-images
+            each item in tourDetail.images
+              .inner-image
+                img(src=item)
+
+      .col-6 
+        .inner-title Tour Hạ Long
+
+        .inner-barcode
+          i(class="fa-solid fa-barcode") 
+          |  Mã tour: #{tourDetail.code}
+
+        .inner-time-start
+          i(class="fa-solid fa-calendar-days")
+          |  Lịch khởi hành: 
+          +formatDateTime(tourDetail.timeStart)
+
+        .inner-stock
+          i(class="fa-solid fa-person-walking-luggage")
+          |  Còn lại: #{tourDetail.stock} chỗ
+
+        .inner-price-special #{tourDetail.price_special.toLocaleString()}
+        .inner-price #{tourDetail.price.toLocaleString()}
+        .inner-percent Giảm tới #{tourDetail.discount} %
+
+        form(
+          form-add-to-cart
+          tour-id=tourDetail.id
+        )
+          input.form-control.mb-2(
+            type="number"
+            name="quantity"
+            value="1"
+            min="1"
+            max=tourDetail.stock
+          )
+          button.btn.btn-success.btn-block(type="submit")
+            | Thêm vào giỏ hàng
+
+
+    .row
+      .col-12
+        .inner-infomation
+          .inner-label Thông tin tour
+          .inner-text
+            | #{tourDetail.information}
+
+      .col-12
+        .inner-infomation
+          .inner-label Lịch trình tour
+          .inner-text
+            | #{tourDetail.schedule}

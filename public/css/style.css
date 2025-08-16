@@ -60,3 +60,127 @@ height:50px;
     font-weight: 600;
     color:green
 }
+
+/* tour-detail  */
+/* Container chính */
+.container {
+  max-width: 1200px;
+}
+
+/* Tiêu đề tour */
+.inner-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+/* Thông tin nhỏ dưới tiêu đề */
+.inner-barcode,
+.inner-time-start,
+.inner-stock {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.inner-barcode i,
+.inner-time-start i,
+.inner-stock i {
+  color: #c12026;
+  margin-right: 8px;
+}
+
+/* Form thêm vào giỏ hàng */
+form.form-add-to-cart {
+  margin-top: 20px;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.btn-success {
+  background: #16a34a;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  transition: background 0.3s;
+}
+
+.btn-success:hover {
+  background: #15803d;
+}
+
+/* Box thông tin */
+.inner-infomation {
+  margin-top: 25px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background: #fafafa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.inner-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #c12026;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+}
+
+.inner-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+  white-space: pre-line;
+}
+
+/* Ảnh */
+.inner-images {
+  display: flex;
+  flex-direction: column; /* xếp dọc */
+  gap: 15px; /* khoảng cách giữa ảnh */
+}
+
+.inner-image img {
+  width: 100%;       /* full chiều ngang col-6 */
+  height: 250px;     /* bạn chỉnh cao tùy ý */
+  object-fit: cover; /* cắt ảnh gọn đẹp */
+  border-radius: 8px;
+}
+/* Khối giá tour */
+.inner-price-special {
+  font-size: 22px;
+  font-weight: 700;
+  color: #c12026; /* đỏ nổi bật */
+  margin-right: 10px;
+}
+
+.inner-price {
+  font-size: 16px;
+  color: #9ca3af; /* xám */
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.inner-percent {
+  display: inline-block;
+  background: #facc15; /* vàng */
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom:10px;
+}
+/* End tour-detail */

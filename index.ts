@@ -1,5 +1,6 @@
   import express, { Application, Request, Response } from 'express';
   import path from 'path';
+
   //env
   import dotenv from 'dotenv';
   dotenv.config();
@@ -11,6 +12,9 @@
   import sequelize from './config/database';
   sequelize
 
+  //moment
+  import moment from 'moment';
+  app.locals.moment=moment
   //pug
   app.use(express.static(path.join(__dirname, 'public')))
   app.set('views', path.join(__dirname, 'views')); // thêm path.join
