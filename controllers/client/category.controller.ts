@@ -10,7 +10,8 @@ export const index = async (req: Request, res: Response) => {
     },
     raw:true
   })
-  console.log(categories)
+
+  
   res.render("client/pages/categories/index", {
     pageTitle:"Trang danh mục Tours",
     categories:categories
