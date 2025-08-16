@@ -12,6 +12,7 @@
   sequelize
 
   //pug
+  app.use(express.static(path.join(__dirname, 'public')))
   app.set('views', path.join(__dirname, 'views')); // thêm path.join
   app.set('view engine', 'pug')
 
