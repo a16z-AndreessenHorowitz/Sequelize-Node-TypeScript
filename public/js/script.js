@@ -19,6 +19,26 @@ var swiper = new Swiper(".mySwiper", {
 // ảnh động slider của swiper 
 
 
+
+// alert 
+const alert=()=>{
+  const alertAddCart=document.querySelector("[alert-add-cart-success]")
+  if(alertAddCart){
+    alertAddCart.classList.remove("alert-hidden")
+
+    setTimeout(()=>{
+    alertAddCart.classList.add("alert-hidden")
+    },3000)
+    const closeAlert=alertAddCart.querySelector("[close-alert]")
+    closeAlert.addEventListener("click",()=>{
+      alertAddCart.classList.add("alert-hidden")
+    })
+  }
+}
+
+
+
+
 // cart 
 const cart=localStorage.getItem("cart")
   // nếu chưa có giỏ hàng thì tạo giỏ hàng mới
@@ -50,7 +70,11 @@ if(!cart){
         }
         
         localStorage.setItem("cart",JSON.stringify(cart)) //update lại do cart mới push là mảng mới và phải chuyển đổi JSON
+
+        //gọi đến alert
+        alert()
       }
     })
   }
 // end cart 
+

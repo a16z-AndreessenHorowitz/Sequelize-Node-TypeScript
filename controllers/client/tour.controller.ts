@@ -41,7 +41,7 @@ export const index = async (req: Request, res: Response) => {
     //chuyển giá lại thành số
     tour["price_special"]=parseFloat(tour["price_special"])
   });
-  console.log(tours)
+
   res.render("client/pages/tours/index", {
     pageTitle: "Trang danh sách Tours",
     tours:tours
@@ -66,7 +66,7 @@ export const detail=async (req:Request, res:Response)=>{
   //làm giá mới
   tourDetail["price_special"]=tourDetail["price"]* (1-tourDetail["discount"]/100)
 
-  console.log(tourDetail)
+
   res.render("client/pages/tours/detail",{
     pageTitle:"Chi tiết tour",
     tourDetail:tourDetail
