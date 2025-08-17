@@ -20,6 +20,16 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
+// cart 
+const cart=localStorage.getItem("cart")
+  // nếu chưa có giỏ hàng thì tạo giỏ hàng mới
+if(!cart){
+ localStorage.setItem("cart",JSON.stringify([]))//trong localStorgae luôn đưa chuỗi
+}
+
+
+
+
 // alert 
 const alert=()=>{
   const alertAddCart=document.querySelector("[alert-add-cart-success]")
@@ -37,14 +47,19 @@ const alert=()=>{
 }
 
 
-
-
-// cart 
-const cart=localStorage.getItem("cart")
-  // nếu chưa có giỏ hàng thì tạo giỏ hàng mới
-if(!cart){
- localStorage.setItem("cart",JSON.stringify([]))//trong localStorgae luôn đưa chuỗi
+//hiển thị số lượng sản phẩm vào mini-cart
+const showMiniCart=()=>{
+  const spanMiniCart=document.querySelector("[mini-cart]")
+  if(spanMiniCart){
+    const cart=JSON.parse(localStorage.getItem("cart"))
+    const totalQuantity= cart.reduce((sum,item)=>sum+item.quantity,0)
+    spanMiniCart.innerHTML=totalQuantity
+  }
 }
+//gọi cho nó cập nhật lúc mới load wed
+showMiniCart()
+
+
 
   // thêm tour vào giỏ hàng 
   const formAddToCart=document.querySelector("[form-add-to-cart]")
@@ -73,6 +88,8 @@ if(!cart){
 
         //gọi đến alert
         alert()
+        //update lại khi thêm vào giỏ hang
+        showMiniCart()
       }
     })
   }
