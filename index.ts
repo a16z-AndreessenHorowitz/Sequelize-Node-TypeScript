@@ -8,6 +8,10 @@
   const app: Application = express();
   const port = process.env.PORT;
 
+  //body-parser
+  import bodyParser from 'body-parser';
+  app.use(bodyParser.json())
+
   //database connect
   import sequelize from './config/database';
   sequelize
