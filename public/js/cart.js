@@ -39,10 +39,12 @@ const drawListTour=()=>{
 
     //vì khi vẽ ra giao diện thì mới có cái để mà xoá sản phẩm 
     deleteItemInCart()
+
+    //update lại quantity, giá tiền
+    updateQuantityInCart()
   })
 
 }
-
 
 //Xoá sản phẩm trong giỏ hàng
 const deleteItemInCart=()=>{
@@ -70,7 +72,30 @@ const deleteItemInCart=()=>{
 }
 //Hết xoá sản phẩm
 
+// update sản phẩm 
+const updateQuantityInCart=()=>{
+  const listInputUpdate=document.querySelectorAll("[list-tour] input[item-id]")
+  listInputUpdate.forEach(input=>{
+    input.addEventListener("change",()=>{
+      const tourId=input.getAttribute("item-id")
+      const quantity=input.value
+      // console.log(tourId)
+      // console.log(quantity)
 
+      const cart=JSON.parse(localStorage.getItem("cart"))
+      //hàm find không tạo ra bản sao của object trong mảng, mà nó trả về tham chiếu (reference) đến object đó trong cart.
+      // thì thực chất bạn đang thay đổi trực tiếp object nằm trong mảng cart, vì tourUpdate và phần tử trong cart cùng trỏ đến một vùng nhớ.
+      const tourUpdate=cart.find(item=>item.tourId==tourId)
+      tourUpdate.quantity=parseInt(quantity)
+      
+        // console.log(cart)
+      localStorage.setItem("cart",JSON.stringify(cart))
+
+      drawListTour()
+    })
+  })
+}
+//end update sản phẩm 
 
 //gọi hàm để nó vẽ khi mới load trang khi mới lần đầu vào
 drawListTour()
