@@ -6,7 +6,7 @@
   dotenv.config();
 
   const app: Application = express();
-  const port = process.env.PORT;
+  const port: number = Number(process.env.PORT);
 
   //body-parser
   import bodyParser from 'body-parser';
@@ -28,6 +28,6 @@
   import { routeClient } from './routes/index.route';
   routeClient(app)
 
-  app.listen(port, () => {
+  app.listen(port,"0.0.0.0", () => {
     console.log(`Server is running on http://localhost:${port}`);
   });
