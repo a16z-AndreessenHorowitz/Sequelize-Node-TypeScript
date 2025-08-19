@@ -129,7 +129,15 @@ if(formOrder){
       })
         .then(res=>res.json())
         .then(data=>{
-          console.log(data)
+          if(data.code == 200){
+            //B1:nếu đặt hàng thành công thì xoá giỏ hàng thành rỗng
+            localStorage.removeItem("cart")
+            //B2: chuyển hướng sang trang đặt hàng thành công
+            window.location.href=`/order/success?orderCode=${data.orderCode}`
+            //hoặc có thể viết window.location.href=`/order/success/${data.orderCode}`
+          }else{
+            alert("Đặt hàng không thành công")
+          }
         })
 
 
