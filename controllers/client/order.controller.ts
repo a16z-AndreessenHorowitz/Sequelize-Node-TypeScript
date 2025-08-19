@@ -5,7 +5,7 @@ import Tour from '../../models/tour.model';
 import OrderItem from '../../models/order-item.model';
 
 
-// [GET] /tours/:slugCategory
+// [GET] /order/:slugCategory
 export const order = async (req: Request, res: Response) => {
   const data=req.body
 
@@ -62,7 +62,7 @@ export const order = async (req: Request, res: Response) => {
 
       // console.log(dataItem)
       await OrderItem.create(dataItem)
-      
+
     }
     
   res.json({
@@ -70,5 +70,13 @@ export const order = async (req: Request, res: Response) => {
     message:"Đặt hàng thành công!",
     //trả mã đơn hàng code ra giao diện cho front-end để link sang trang gì tiếp theo như kết quả đơn hàng
     orderCode:code
+  })
+}
+
+// [GET] /order/success
+export const success = async (req: Request, res: Response) => {
+
+  res.render("client/pages/order/success",{
+    pageTitle:"Đặt hàng thành công"
   })
 }
