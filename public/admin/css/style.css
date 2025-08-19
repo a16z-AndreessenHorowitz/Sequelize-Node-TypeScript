@@ -1,0 +1,83 @@
+/* Đảm bảo body và html chiếm full màn hình */
+.header{
+    background-color: #333;
+    padding:10px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bọc toàn bộ trang */
+.body {
+  display: flex;
+  height: 100%;
+}
+
+/* Thanh sider bên trái */
+.sider {
+  width: 200px;
+  background-color: #333; /* Màu đen */
+  color: #fff;
+  padding: 10px 10px;
+}
+
+/* Menu bên trong sider */
+.inner-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inner-menu ul li {
+  margin-bottom: 10px;
+}
+
+.inner-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.inner-menu ul li a:hover {
+  background-color:#333;
+}
+
+/* Phần nội dung chính */
+.main {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+
+.inner-logo{
+    width: 80px;
+height:50px;
+}
+.header{
+    border-bottom: 1px solid #ddd;
+    padding :10px 0;
+
+}
+.header .inner-logo img{
+    max-height: 50px;
+    max-width: 100%;
+}
+.header .inner-menu > ul{ 
+    list-style: none;
+    padding:0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+}
+.header .inner-menu > ul > li{
+    margin-left: 20px;
+}

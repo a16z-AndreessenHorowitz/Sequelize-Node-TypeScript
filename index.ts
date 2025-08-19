@@ -25,8 +25,10 @@
   app.set('view engine', 'pug')
 
   //Routes
-  import { routeClient } from './routes/index.route';
+  import { routeClient} from './routes/index.route';
+  import { routeAdmin } from './routes/admin/index.route';
   routeClient(app)
+  routeAdmin(app)
 
   app.listen(port,"0.0.0.0", () => {
     console.log(`Server is running on http://localhost:${port}`);
