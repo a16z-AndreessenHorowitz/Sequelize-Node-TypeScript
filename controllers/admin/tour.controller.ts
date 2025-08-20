@@ -59,6 +59,7 @@ export const createPost = async (req: Request, res: Response) => {
   const dataTour={
     title:req.body.title,
     code:code,
+    images:JSON.stringify(req.body.images),//ban đầu là chuỗi JS
     price:parseInt(req.body.price),
     discount:parseInt(req.body.discount),
     stock:parseInt(req.body.stock),
@@ -80,6 +81,6 @@ export const createPost = async (req: Request, res: Response) => {
   } 
 
   await TourCategory.create(dataTourCategory)
-  
+
   res.redirect("/admin/tours")
 }

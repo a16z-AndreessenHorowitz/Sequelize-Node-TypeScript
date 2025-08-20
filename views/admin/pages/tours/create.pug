@@ -3,8 +3,7 @@ extends ../../layouts/default.pug
 block main
   h1(class="mb-4") #{pageTitle}
 
-  form(action=`/admin/tours/create` method="POST")
-    // Tiêu đề
+  form(action=`/admin/tours/create` method="POST" enctype="multipart/form-data")
     div(class="form-group")
       label(for="title") Tiêu đề
       input(
@@ -15,7 +14,6 @@ block main
         required
       )
 
-    // Danh mục
     div(class="form-group")
       label(for="category") Danh mục
       select(
@@ -28,8 +26,17 @@ block main
         each item in categories
           option(value=item.id) #{item.title}
         
+    div(class="form-group")
+      lable(for="images") Chọn nhiều ảnh
+      input(
+        type="file"
+        class="form-control-file"
+        id="images"
+        name="images"
+        accept="image/*"
+        multiple
+      )
 
-    // Giá
     div(class="form-group")
       label(for="price") Giá
       input(
@@ -41,7 +48,6 @@ block main
         min="0"
       )
 
-    // % Giảm giá
     div(class="form-group")
       label(for="discount") % Giảm giá
       input(
@@ -53,7 +59,6 @@ block main
         min="0"
       )
 
-    // Số lượng
     div(class="form-group")
       label(for="stock") Số lượng
       input(
@@ -76,7 +81,6 @@ block main
         min="0"
       )
 
-    // Vị trí
     div(class="form-group")
       label(for="position") Vị trí
       input(
