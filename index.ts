@@ -11,6 +11,7 @@
   //body-parser
   import bodyParser from 'body-parser';
   app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: false }))
 
   //database connect
   import sequelize from './config/database';

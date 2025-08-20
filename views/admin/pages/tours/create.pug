@@ -1,0 +1,111 @@
+extends ../../layouts/default.pug
+
+block main
+  h1(class="mb-4") #{pageTitle}
+
+  form(action=`/admin/tours/create` method="POST")
+    // Tiêu đề
+    div(class="form-group")
+      label(for="title") Tiêu đề
+      input(
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        required
+      )
+
+    // Danh mục
+    div(class="form-group")
+      label(for="category") Danh mục
+      select(
+        name="category_id"
+        id="category"
+        class="form-control"
+        required
+      )
+        option(value="" disabled selected) -- Chọn danh mục --
+        each item in categories
+          option(value=item.id) #{item.title}
+        
+
+    // Giá
+    div(class="form-group")
+      label(for="price") Giá
+      input(
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        value="0"
+        min="0"
+      )
+
+    // % Giảm giá
+    div(class="form-group")
+      label(for="discount") % Giảm giá
+      input(
+        type="number"
+        class="form-control"
+        id="discount"
+        name="discount"
+        value="0"
+        min="0"
+      )
+
+    // Số lượng
+    div(class="form-group")
+      label(for="stock") Số lượng
+      input(
+        type="number"
+        class="form-control"
+        id="stock"
+        name="stock"
+        value="0"
+        min="0"
+      )
+
+    div(class="form-group")
+      label(for="timeStart") Lịch khởi hành
+      input(
+        type="datetime-local"
+        class="form-control"
+        id="timeStart"
+        name="timeStart"
+        value="0"
+        min="0"
+      )
+
+    // Vị trí
+    div(class="form-group")
+      label(for="position") Vị trí
+      input(
+        type="number"
+        class="form-control"
+        id="position"
+        name="position"
+        placeholder="Tự động tăng"
+        min="0"
+      )
+
+    div(class="form-group form-check form-check-inline")
+      input(
+        type="radio"
+        class="form-check-input"
+        id="statusActive"
+        name="status"
+        value="active"
+        checked
+      )
+      label(for="statusActive") Hoạt động
+
+      input(
+        type="radio"
+        class="form-check-input"
+        id="statusInactive"
+        name="status"
+        value="inactive"
+      )
+      label(for="statusInactive") Dừng hoạt động
+
+    button(type="submit" class="btn btn-primary mt-3") Tạo mới
