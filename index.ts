@@ -20,6 +20,11 @@
   //moment
   import moment from 'moment';
   app.locals.moment=moment
+
+   //time cme
+  app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+  //time cme
+  
   //pug
   app.use(express.static(path.join(__dirname, 'public')))
   app.set('views', path.join(__dirname, 'views')); // thêm path.join

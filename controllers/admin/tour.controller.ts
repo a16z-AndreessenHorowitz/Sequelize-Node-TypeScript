@@ -65,7 +65,9 @@ export const createPost = async (req: Request, res: Response) => {
     stock:parseInt(req.body.stock),
     timeStart:req.body.timeStart,
     position:req.body.position,
-    status:req.body.status
+    status:req.body.status,
+    information:req.body.information,
+    schedule:req.body.schedule 
   }
   // console.log(dataTour)
   // console.log(code)

@@ -67,10 +67,10 @@ block main
         .inner-infomation
           .inner-label Thông tin tour
           .inner-text
-            | #{tourDetail.information}
+            != tourDetail.information
 
       .col-12
         .inner-infomation
           .inner-label Lịch trình tour
           .inner-text
-            | #{tourDetail.schedule}
+            #{tourDetail.schedule}
